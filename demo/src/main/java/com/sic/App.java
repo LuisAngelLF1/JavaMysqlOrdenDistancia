@@ -3,7 +3,8 @@ package com.sic;
 import java.io.FileWriter; 
 import java.sql.*; public class App { public static void main(String[] args) { 
    int i=0; //control de indices del arregl a ordenar
-   int key;//variable de control para almacenar un valor del arreglo
+   int k;
+   int aux;//variable de control para almacenar un valor del arreglo
    int [] arreglo= new int [11]; //arreglo
    int indicemen=0; //guardara el indice del elemento menor
    // Try-Catch para manejo de errores 
@@ -32,16 +33,16 @@ import java.sql.*; public class App { public static void main(String[] args) {
         
        //ciclo para ordenar los datos(selectsort)
        for (int j=0;j<11;j++){
-          key=arreglo[j];
           indicemen=j;
           //comparacion de j hasta n
-          for(int k=j+1;k<11;k++){
-             if (arreglo[k]<key){
+          for(k=j+1;k<11;k++){
+             if (arreglo[k]<arreglo[indicemen]){
                 indicemen=k;
              }
             }
+         aux=arreglo[j];
          arreglo[j]=arreglo[indicemen];
-         arreglo[indicemen]=key;
+         arreglo[indicemen]=aux;
        }
        //Se imprimen los datos en orden
        System.out.println("Datos ordenados");
